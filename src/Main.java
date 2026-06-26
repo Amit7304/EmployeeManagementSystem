@@ -1,3 +1,4 @@
+import dao.EmployeeDAO;
 import model.Employee;
 import java.sql.Connection;
 import com.mysql.cj.jdbc.Driver;
@@ -20,12 +21,9 @@ public class Main {
         System.out.println(emp.getSalary());
         System.out.println(emp);
 
-        Connection con = DBConnection.getConnection();
 
-        if (con != null) {
-            System.out.println("Connection Successful");
-        } else {
-            System.out.println("Connection Failed");
-        }
+        EmployeeDAO dao = new EmployeeDAO();
+
+        dao.addEmployee(emp);
     }
 }
